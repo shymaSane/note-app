@@ -10,7 +10,8 @@ const yargs = require("yargs")
 const notes = require("./notes.js")
 const argv = yargs.argv
 
-var command = process.argv[2];
+// var command = process.argv[2];
+var command = argv._[0];
 console.log(`command is: ${command}`);
 // console.log(`process: ${process.argv}`); >> it didnt writing it that way 
 console.log("process: ", process.argv)
@@ -19,11 +20,11 @@ console.log(" yargs:" , argv)
 if (command === 'add'){
     notes.addNote(argv.title, argv.body)
 } else if (command === 'list'){
-    console.log("list all notes");
+   notes.getAll()
 } else if (command === 'read'){ 
-    console.log("read current note");
+    notes.getCurrent(argv.title)
 } else if (command === 'delete'){
-    console.log("delete current note");
+    notes.removeNote(argv.title)
 } else{
     console.log ("command not recongized ")
 }  
