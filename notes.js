@@ -10,7 +10,7 @@ var notes = [];
 var note = {
     title,
     body
-}
+};
 //to solve problem of over write existing note:
 // if we deleted the file data-notes then we ll have problem saving data and error ll accures so
 // we ll add try
@@ -22,10 +22,16 @@ try{
 
 }
 
+//we dont want to save the same title over the one time so we shld make function:
+ var duplicate = notes.filter((note) => note.title === title);
+
 // to save notes in the array then to another file but change it to string first
 // a problem accured that it over write existing note 
-notes.push(note);
-fs.writeFileSync('notes-data.json', JSON.stringify(notes))
+//fir it to fit the duplicate 
+if(duplicate.length === 0){
+    notes.push(note);
+    fs.writeFileSync('notes-data.json', JSON.stringify(notes));
+};
 }
 
 
