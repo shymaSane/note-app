@@ -14,7 +14,7 @@ const argv = yargs.argv
 var command = argv._[0];
 console.log(`command is: ${command}`);
 // console.log(`process: ${process.argv}`); >> it didnt writing it that way 
-console.log("process: ", process.argv)
+// console.log("process: ", process.argv)
 console.log(" yargs:" , argv)
 
 if (command === 'add'){

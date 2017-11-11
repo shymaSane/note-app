@@ -1,10 +1,21 @@
 console.log("notes.js started!")
 
 // module.exports.age = 25;
+const fs = require('fs')
+
+// adding and saving notes:
 
 var addNote = (title, body) => {
-console.log("new note added", title, body)
+var notes = [];
+var note = {
+    title,
+    body
 }
+notes.push(note);
+fs.writeFileSync('notes-data.json', JSON.stringify(notes))
+}
+
+
 var getAll = () =>{
     console.log("getting all notes")
 }
