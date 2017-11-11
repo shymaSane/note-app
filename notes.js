@@ -11,6 +11,19 @@ var note = {
     title,
     body
 }
+//to solve problem of over write existing note:
+// if we deleted the file data-notes then we ll have problem saving data and error ll accures so
+// we ll add try
+
+try{
+    var noteString = fs.readFileSync('notes-data.json');
+    var note = JSON.parse(noteString);
+} catch(e){
+    
+}
+
+// to save notes in the array then to another file but change it to string first
+// a problem accured that it over write existing note 
 notes.push(note);
 fs.writeFileSync('notes-data.json', JSON.stringify(notes))
 }
