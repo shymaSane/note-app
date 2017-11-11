@@ -17,9 +17,9 @@ var note = {
 
 try{
     var noteString = fs.readFileSync('notes-data.json');
-    var note = JSON.parse(noteString);
+    notes = JSON.parse(noteString);
 } catch(e){
-    
+
 }
 
 // to save notes in the array then to another file but change it to string first
