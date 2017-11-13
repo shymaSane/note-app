@@ -58,8 +58,13 @@ var getAll = () =>{
 var getCurrent = (title) =>{
     console.log("reading note", title)
 }
-var removeNote= (title) =>{
-console.log("removing note", title)
+var removeNote = (title) =>{
+var notes = fetchNotes();
+var newNotes = notes.filter ((note) => {
+    return !(note.title === title)
+})
+var notes = newNotes
+saveNotes(notes);
 }
 
 module.exports = {
