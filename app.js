@@ -18,7 +18,15 @@ console.log(`command is: ${command}`);
 console.log(" yargs:" , argv)
 
 if (command === 'add'){
-    notes.addNote(argv.title, argv.body)
+   var note = notes.addNote(argv.title, argv.body)
+   if(note){
+       console.log('Note added');
+       console.log(`Title: ${note.title}`);
+       console.log(`Body: ${note.body}`);
+   } else {
+       console.log("Title already in use!!")
+   }
+
 } else if (command === 'list'){
    notes.getAll()
 } else if (command === 'read'){ 
