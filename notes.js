@@ -47,7 +47,10 @@ var note = {
 if(duplicate.length === 0){
     notes.push(note);
     saveNotes(notes)
-};
+    return note;
+} else {
+   console.log("title in use !!!") 
+}
 }
 
 
