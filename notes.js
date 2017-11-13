@@ -60,11 +60,9 @@ var getCurrent = (title) =>{
 }
 var removeNote = (title) =>{
 var notes = fetchNotes();
-var newNotes = notes.filter ((note) => {
-    return !(note.title === title)
-})
-var notes = newNotes
-saveNotes(notes);
+var newNotes = notes.filter ((note) => note.title !== title)
+saveNotes(newNotes);
+return notes.length !== newNotes.length;
 }
 
 module.exports = {

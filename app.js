@@ -32,8 +32,10 @@ if (command === 'add'){
 } else if (command === 'read'){ 
     notes.getCurrent(argv.title)
 } else if (command === 'delete'){
-    notes.removeNote(argv.title)
-} else{
+    var filtered = notes.removeNote(argv.title)
+    var message = filtered ? "Note was removed" : "Note is not found!";
+    console.log(message)
+} else {
     console.log ("command not recongized ")
 }  
 
