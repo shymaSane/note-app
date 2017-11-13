@@ -15,6 +15,10 @@ var fetchNotes = () => {
  }
 }
 
+var saveNotes = (notes) => {
+fs.writeFileSync('notes-data.json', JSON.stringify(notes))
+}
+
 // adding and saving notes:
 
 var addNote = (title, body) => {
@@ -42,7 +46,7 @@ var note = {
 //fir it to fit the duplicate 
 if(duplicate.length === 0){
     notes.push(note);
-    fs.writeFileSync('notes-data.json', JSON.stringify(notes));
+    saveNotes(notes)
 };
 }
 
