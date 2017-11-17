@@ -61,7 +61,7 @@ var getAll = () =>{
 var getCurrent = (title) =>{
     var notes = fetchNotes();
     var newNotes = notes.filter((note) => note.title === title);
-    return newNotes
+    return newNotes[0]
 }
 
 // removing notes :
@@ -74,10 +74,16 @@ saveNotes(newNotes);
 return notes.length !== newNotes.length;
 }
 
+var log = (object) => {
+    console.log(`Title: ${object.title}`);
+       console.log(`Body: ${object.body}`);
+}
+
 module.exports = {
     //if the key and the value is the same so wrtie it like this addNote: addNote
     addNote,
     getAll,
     getCurrent,
-    removeNote
+    removeNote,
+    log
 }
