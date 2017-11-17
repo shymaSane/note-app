@@ -27,15 +27,24 @@ if (command === 'add'){
        console.log("Title already in use!!")
    }
 
-} else if (command === 'list'){
+} 
+
+else if (command === 'list'){
    notes.getAll()
-} else if (command === 'read'){ 
-    notes.getCurrent(argv.title)
-} else if (command === 'delete'){
+} 
+
+else if (command === 'read'){ 
+    var note = notes.getCurrent(argv.title);
+    var message = note ?` "your note is: ${note[0].body} `: "note not found"
+} 
+
+else if (command === 'delete'){
     var filtered = notes.removeNote(argv.title)
     var message = filtered ? "Note was removed" : "Note is not found!";
     console.log(message)
-} else {
+} 
+
+else {
     console.log ("command not recongized ")
 }  
 

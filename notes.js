@@ -55,13 +55,22 @@ if(duplicate.length === 0){
 var getAll = () =>{
     console.log("getting all notes")
 }
+
+//read current note
+
 var getCurrent = (title) =>{
-    console.log("reading note", title)
+    var notes = fetchNotes();
+    var newNotes = notes.filter((note) => note.title === title);
+    return newNotes
 }
+
+// removing notes :
+
 var removeNote = (title) =>{
 var notes = fetchNotes();
 var newNotes = notes.filter ((note) => note.title !== title)
 saveNotes(newNotes);
+
 return notes.length !== newNotes.length;
 }
 
