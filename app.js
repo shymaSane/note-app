@@ -7,13 +7,15 @@ const fs = require("fs");
 const _= require ("lodash")
 const yargs = require("yargs")
 
+const titleDemands = {
+    describe: 'title of note',
+    demand: true,
+    alias: 't'
+}
+
 const notes = require("./notes.js")
 const argv = yargs.command('add', 'Add new note',{
-    title:{
-        describe: 'title of note',
-        demand: true,
-        alias: 't'
-    },
+    title:titleDemands ,
     body:{
         describe: 'body of note',
         demand: true,
@@ -22,11 +24,10 @@ const argv = yargs.command('add', 'Add new note',{
 })
 .command('list', 'show all notes')
 .command('read', 'read provided note by given its title',{
-    title: {
-        describe: 'title of note',
-        demand: true,
-        alias: 't'
-    }
+    title: titleDemands 
+})
+.command('delete', 'to delete a note giving its title',{
+    title: titleDemands
 })
 .help()
 .argv
