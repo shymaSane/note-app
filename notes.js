@@ -53,7 +53,7 @@ if(duplicate.length === 0){
 
 
 var getAll = () =>{
-    console.log("getting all notes")
+    return fetchNotes()
 }
 
 //read current note
@@ -74,7 +74,9 @@ saveNotes(newNotes);
 return notes.length !== newNotes.length;
 }
 
-var log = (object) => {
+//debugging using n and c and repl
+var log = (object) => { 
+    debugger;
     console.log(`Title: ${object.title}`);
        console.log(`Body: ${object.body}`);
 }
