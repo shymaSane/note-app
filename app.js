@@ -20,6 +20,14 @@ const argv = yargs.command('add', 'Add new note',{
         alias: 'b'
     }
 })
+.command('list', 'show all notes')
+.command('read', 'read provided note by given its title',{
+    title: {
+        describe: 'title of note',
+        demand: true,
+        alias: 't'
+    }
+})
 .help()
 .argv
 
