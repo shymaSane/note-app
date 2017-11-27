@@ -1,4 +1,4 @@
-console.log("notes.js started!")
+
 
 // module.exports.age = 25;
 const fs = require('fs')
